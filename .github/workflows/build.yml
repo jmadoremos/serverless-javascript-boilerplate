@@ -6,8 +6,32 @@ name: Build
 on:
   push:
     branches: [ main ]
+    paths:
+      - res/**/sls/*.yml
+      - res/**/serverless.config.*.yml
+      - res/**/serverless.yml
+      - sls/**/*.yml
+      - src/**/*.js
+      - gulpfile.js
+      - package-lock.json
+      - package.json
+      - serverless.config.*.yml
+      - serverless.yml
+      - webpack.config.js
   pull_request:
     branches: [ main ]
+    paths:
+      - res/**/sls/*.yml
+      - res/**/serverless.config.*.yml
+      - res/**/serverless.yml
+      - sls/**/*.yml
+      - src/**/*.js
+      - gulpfile.js
+      - package-lock.json
+      - package.json
+      - serverless.config.*.yml
+      - serverless.yml
+      - webpack.config.js
 
 jobs:
   build:
