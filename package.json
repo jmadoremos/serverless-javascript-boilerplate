@@ -34,7 +34,7 @@
     "type": "git",
     "url": "https://github.com/jmadoremos/serverless-javascript-boilerplate.git"
   },
-  "author": "James Michael Adoremos <adoremos162@gmail.com>",
+  "author": "James Michael Adoremos <https://github.com/jmadoremos>",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.784.0"
