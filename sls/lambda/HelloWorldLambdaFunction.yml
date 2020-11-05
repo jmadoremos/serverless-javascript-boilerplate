@@ -1,3 +1,10 @@
 name: helloworld-${self:provider.region}-${self:provider.stage}
 description: Function for hello world
 handler: src/helloWorld/index.handler
+####################################################
+## Uncomment to enable integration with API Gateway
+# events:
+#   - http:
+#       path: hello-world
+#       method: GET
+#       cors: true
