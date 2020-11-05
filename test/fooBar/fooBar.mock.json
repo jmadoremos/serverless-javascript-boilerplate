@@ -1,0 +1,12 @@
+{
+    "getKey()": {
+        "if called without arguments": {
+            "expectedResult": "foo"
+        }
+    },
+    "getValue()": {
+        "if called without arguments": {
+            "expectedResult": "bar"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+Type: AWS::IAM::Role
+Properties:
+  RoleName: SharedLambdaFunctionRole-${self:provider.stage}
+  Description: Role assumed by a Lambda function
+  MaxSessionDuration: 3600 # in seconds (1 hour, minimum)
+  AssumeRolePolicyDocument:
+    Version: '2012-10-17'
+    Statement:
+      - Effect: Allow
+        Principal:
+          Service: lambda.amazonaws.com
+        Action: sts:AssumeRole

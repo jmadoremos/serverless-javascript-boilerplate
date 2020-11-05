@@ -1,0 +1,55 @@
+{
+  "name": "serverless-javascript-boilerplate",
+  "version": "0.0.1-alpha",
+  "description": "A Serverless Framework boilerplate for NodeJS using JavaScript that includes webpack support, unit testing using mocha, linting using eslint, and task automation using gulp.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "sls offline --stage local",
+    "test": "nyc mocha",
+    "test-coverage": "nyc --reporter=text mocha",
+    "test-report": "nyc mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./report/testResults.xml",
+    "lint": "eslint src/**/*.js test/**/*.spec.js --color",
+    "lint-fix": "eslint src/**/*.js test/**/*.spec.js --color --fix",
+    "initialize-serverless-dev": "cd ./res/initialize-serverless && sls deploy --stage dev",
+    "package": "gulp package-all"
+  },
+  "keywords": [
+    "aws",
+    "boilerplate",
+    "cobertura",
+    "eslint",
+    "gulp",
+    "javascript",
+    "junit",
+    "mocha",
+    "nodejs",
+    "nyc",
+    "serverless",
+    "serverless-webpack",
+    "serverless-offline",
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmadoremos/serverless-javascript-boilerplate.git"
+  },
+  "author": "James Michael Adoremos <adoremos162@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.784.0"
+  },
+  "devDependencies": {
+    "archiver": "^5.0.2",
+    "chai": "^4.2.0",
+    "del": "^6.0.0",
+    "eslint": "^7.12.1",
+    "gulp": "^4.0.2",
+    "mocha": "^8.2.1",
+    "mocha-junit-reporter": "^2.0.0",
+    "nyc": "^15.1.0",
+    "serverless": "^2.10.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-webpack": "^5.3.5",
+    "sinon": "^9.2.1"
+  }
+}

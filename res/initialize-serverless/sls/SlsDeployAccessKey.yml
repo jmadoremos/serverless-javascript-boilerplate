@@ -1,0 +1,4 @@
+Type: AWS::IAM::AccessKey
+Properties:
+  Status: Active
+  UserName: !Ref SlsDeployUser

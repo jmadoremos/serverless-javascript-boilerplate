@@ -1,0 +1,44 @@
+Type: AWS::IAM::Role
+Properties:
+  RoleName: CloudFormationStackRole-${self:provider.stage}
+  Description: Role assumed by a CloudFormation stack
+  MaxSessionDuration: 3600 # in seconds (1 hour)
+  AssumeRolePolicyDocument:
+    Version: '2012-10-17'
+    Statement:
+      - Effect: Allow
+        Principal:
+          Service: cloudformation.amazonaws.com
+        Action: sts:AssumeRole
+  Policies:
+    - PolicyName: CloudFormationStackRolePolicy-${self:provider.stage}
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - iam:CreateRole
+              - iam:DeleteRole
+              - iam:DeleteRolePolicy
+              - iam:GetRole
+              - iam:PassRole
+              - iam:PutRolePolicy
+              - lambda:AddPermission
+              - lambda:CreateFunction
+              - lambda:DeleteFunction
+              - lambda:GetFunction
+              - lambda:GetFunctionConfiguration
+              - lambda:ListVersionsByFunction
+              - lambda:PublishVersion
+              - lambda:UpdateFunctionCode
+              - lambda:UpdateFunctionConfiguration
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:DeleteLogGroup
+              - logs:DeleteLogStream
+              - logs:DescribeLogGroups
+            Resource: '*'
+          - Effect: Allow
+            Resource: !Join ['', [!GetAtt ServerlessDeploymentBucket.Arn, '/*']]
+            Action:
+              - s3:GetObject

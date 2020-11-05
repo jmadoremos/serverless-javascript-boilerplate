@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        // Improve your code commenting by annotating with alert, informational, TODOs, and more!
+        "aaron-bond.better-comments",
+        // Spelling checker for source code
+        "streetsidesoftware.code-spell-checker",
+        // EditorConfig Support for Visual Studio Code
+        "editorconfig.editorconfig",
+        // Supercharge the Git capabilities built into Visual Studio Code
+        "eamodio.gitlens",
+        // Icons for Visual Studio Code
+        "vscode-icons-team.vscode-icons",
+        // AI-assisted development
+        "visualstudioexptteam.vscodeintellicode",
+        // A VS Code theme for the night owls out there
+        "sdras.night-owl",
+    ]
+}
