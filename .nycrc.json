@@ -1,0 +1,12 @@
+{
+    "all": true,
+    "reporter": [
+        "cobertura"
+    ],
+    "include": [
+        "src/**/*.js"
+    ],
+    "exclude": [
+        "src/index.js"
+    ]
+}

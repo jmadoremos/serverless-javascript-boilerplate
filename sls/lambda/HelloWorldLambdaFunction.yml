@@ -1,0 +1,3 @@
+name: helloworld-${self:provider.region}-${self:provider.stage}
+description: Function for hello world
+handler: src/helloWorld/index.handler

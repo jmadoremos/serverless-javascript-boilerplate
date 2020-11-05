@@ -1,0 +1,3 @@
+ServerlessDeploymentBucketName: dummy-deployment-bucket
+
+CloudFormationStackRoleArn: arn:aws:iam::*:role/dummy-cloudformation-role

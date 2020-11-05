@@ -1,0 +1,22 @@
+{
+    "diff": true,
+    "extension": [
+        "js"
+    ],
+    "timeout": 8000,
+    "file": [
+        "test/index.js"
+    ],
+    "spec": [
+        "test/**/*.spec.js"
+    ],
+    "watch-files": [
+        "src/**/*.js"
+    ],
+    "watch-ignore": [
+        ".git",
+        "build",
+        "dist",
+        "node_modules"
+    ]
+}

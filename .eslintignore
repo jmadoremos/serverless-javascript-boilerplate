@@ -1,0 +1,7 @@
+# Do not include generated files
+.serverless/
+build/
+dist/
+
+# Do not include mock files
+*.mock.json

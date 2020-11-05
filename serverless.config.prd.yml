@@ -1,0 +1,3 @@
+ServerlessDeploymentBucketName: ${cf:initialize-serverless-${self:provider.stage}.ServerlessDeploymentBucketName}
+
+CloudFormationStackRoleArn: ${cf:initialize-serverless-${self:provider.stage}.CloudFormationStackRoleArn}

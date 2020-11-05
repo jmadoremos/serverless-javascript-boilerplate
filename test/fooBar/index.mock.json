@@ -1,0 +1,38 @@
+{
+    "handler(event, context, callback)": {
+        "if event is falsy": {
+            "context": "sample context",
+            "fooBar_getKey": "Key",
+            "fooBar_getValue": "Value",
+            "callbackArguments": [
+                null,
+                {
+                    "context": "sample context",
+                    "body": "Key: Value"
+                }
+            ]
+        },
+        "if context is falsy": {
+            "event": "sample event",
+            "fooBar_getKey": "Key",
+            "fooBar_getValue": "Value",
+            "callbackArguments": [
+                null,
+                {
+                    "event": "sample event",
+                    "body": "Key: Value"
+                }
+            ]
+        },
+        "if callback is falsy": {
+            "event": "sample event",
+            "context": "sample context",
+            "fooBar_getKey": "Key",
+            "fooBar_getValue": "Value",
+            "expectedError": {
+                "name": "TypeError",
+                "message": "callback is not a function"
+            }
+        }
+    }
+}
