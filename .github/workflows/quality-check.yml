@@ -6,8 +6,24 @@ name: Quality Check
 on:
   push:
     branches: [ main ]
+    paths:
+      - src/**/*.js
+      - test/**/*.js
+      - .eslintrc.json
+      - .mocharc.json
+      - .nycrc.json
+      - package-lock.json
+      - package.json
   pull_request:
     branches: [ main ]
+    paths:
+      - src/**/*.js
+      - test/**/*.js
+      - .eslintrc.json
+      - .mocharc.json
+      - .nycrc.json
+      - package-lock.json
+      - package.json
   schedule:
     # At 2:00 PM UTC on Sunday
     - cron: '0 14 * * 0'
