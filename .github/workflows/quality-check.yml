@@ -16,22 +16,38 @@ jobs:
   quality-check:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
+        language: ['javascript']
         node-version: [10.x, 12.x, 14.x]
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
+    #########################################
+    ## Installation
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
+
     - name: Perform clean install
       run: npm ci
-      
+
+    #########################################
+    ## Built-in Quality Checks
     - name: Execute unit tests
       run: npm test
-      
+
     - name: Execute code quality rules
       run: npm run lint
+
+    #########################################
+    ## Code Scanning using CodeQL
+    - name: Initialize CodeQL tools for scanning
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+
+    - name: Perform CodeQL analysis
+      uses: github/codeql-action/analyze@v1
