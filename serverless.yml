@@ -13,6 +13,8 @@ provider:
   role: !GetAtt SharedLambdaFunctionRole.Arn
   cfnRole: ${file(${self:custom.config.${self:provider.stage}}):CloudFormationStackRoleArn}
   versionFunctions: false
+  tags:
+    Environment: ${self:provider.region}-${self:provider.stage}
   ####################################################
   ## Uncomment to include API Gateway for REST APIs
   # apiGateway:
