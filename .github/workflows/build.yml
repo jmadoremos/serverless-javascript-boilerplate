@@ -1,0 +1,57 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+        serverless-version: [1.x, 2.x]
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    #########################################
+    ## Installation
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Use Serverless CLI ${{ matrix.serverless-version }}
+      run: npm install serverless@${{ matrix.serverless-version }} --global
+
+    - name: Perform clean install
+      run: npm ci
+
+    #########################################
+    ## Generate the serverless artifacts
+    - name: Generate initialize-serverless CloudFormation template
+      run: |
+        cd ./res/initialize-serverless
+        sls package --stage dev
+
+    - name: Generate deployment CloudFormation template
+      run: sls package --stage dev
+
+    #########################################
+    ## Lint generated CloudFormation template
+    - name: Execute cfn-lint for initialize-serverless
+      uses: scottbrenner/cfn-lint-action@master
+      with:
+        args: ./res/initialize-serverless/.serverless/cloudformation-template-*.json
+
+    # requires a valid AWS credentials
+    # - name: Execute cfn-lint for deployment
+    #   uses: scottbrenner/cfn-lint-action@master
+    #   with:
+    #     args: ./.serverless/cloudformation-template-*.json
