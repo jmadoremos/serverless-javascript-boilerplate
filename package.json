@@ -10,6 +10,7 @@
     "test-report": "nyc mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./report/testResults.xml",
     "lint": "eslint src/**/*.js test/**/*.spec.js --color",
     "lint-fix": "eslint src/**/*.js test/**/*.spec.js --color --fix",
+    "clean": "gulp clean",
     "initialize-serverless-dev": "cd ./res/initialize-serverless && sls deploy --stage dev",
     "package": "gulp package-all"
   },
