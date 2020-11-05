@@ -6,10 +6,6 @@ const del = require('del');
 const fs = require('fs');
 const gulp = require('gulp');
 
-const ENVIRONMENTS = [
-    { region: 'us-east-1', stage: 'dev' }
-];
-
 const getPackageOutput = (region, stage) => `sls-pkg-${region}-${stage}`;
 const getPackageDirectory = (region, stage) => `build/${getPackageOutput(region, stage)}`;
 const getArchiveOutput = (region, stage) => `dist/source-${region}-${stage}.zip`;
@@ -18,10 +14,8 @@ function cleanServerlessArtifacts() {
     console.log(`> Deleting previous builds`);
 
     const queue = [];
-    ENVIRONMENTS.forEach(env => {
-        queue.push(getPackageDirectory(env.region, env.stage));
-        queue.push(getArchiveOutput(env.region, env.stage));
-    });
+    queue.push('build/sls-*');
+    queue.push('dist/*.zip');
 
     return del(queue);
 }
