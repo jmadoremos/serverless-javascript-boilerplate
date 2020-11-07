@@ -1,0 +1,11 @@
+templates:
+  - res/initialize-serverless/.serverless/cloudformation-template-*.json
+  - .serverless/cloudformation-template-*.json
+ignore_checks:
+  # Check if DependsOn is specified if not needed. A Ref or a
+  # Fn::GetAtt already is an implicit dependency.
+  #
+  # ! We skip this check because serverless adds the DependsOn for
+  # ! Lambda function dependency. As of Serverless v2.10.0, we do not
+  # ! have control to prevent serverless from adding DependsOn.
+  - W3005
