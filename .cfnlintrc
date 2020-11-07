@@ -6,6 +6,7 @@
 templates:
   - res/initialize-serverless/.serverless/cloudformation-template-*.json
   - .serverless/cloudformation-template-*.json
+
 ignore_checks:
   # Check if DependsOn is specified if not needed. A Ref or a
   # Fn::GetAtt already is an implicit dependency.
