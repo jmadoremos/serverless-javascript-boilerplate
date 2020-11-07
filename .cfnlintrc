@@ -15,3 +15,9 @@ ignore_checks:
   # ! Lambda function dependency. As of Serverless v2.10.0, we do not
   # ! have control to prevent serverless from adding DependsOn.
   - W3005
+
+ignore_templates:
+  - node_modules
+  - res
+  - sls
+  - *.yml
