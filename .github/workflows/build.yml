@@ -73,12 +73,5 @@ jobs:
 
     #########################################
     ## Lint generated CloudFormation template
-    - name: Execute cfn-lint for initialize-serverless
-      uses: scottbrenner/cfn-lint-action@master
-      with:
-        args: ./res/initialize-serverless/.serverless/cloudformation-template-*.json
-
     - name: Execute cfn-lint for deployment
       uses: scottbrenner/cfn-lint-action@master
-      with:
-        args: ./.serverless/cloudformation-template-*.json
