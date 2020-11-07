@@ -73,4 +73,6 @@ jobs:
       run: ./res/cfn-lint/install.sh
 
     - name: Execute cfn-lint
-      run: ./res/cfn-lint/execute.sh
+      run: |
+        npm install webpack
+        ./res/cfn-lint/execute.sh
