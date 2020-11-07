@@ -67,7 +67,9 @@ jobs:
         sls package --stage dev
 
     - name: Generate deployment CloudFormation template
-      run: sls package --stage local
+      run: |
+        npm install webpack
+        sls package --stage local
 
     #########################################
     ## Lint generated CloudFormation template
