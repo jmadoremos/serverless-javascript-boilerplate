@@ -61,6 +61,13 @@ custom:
     includeModules:
       forceExclude:
         - aws-sdk
+  ####################################################
+  ## Cross-CloudFormation stack references require a valid
+  ## AWS credentials during `npm start` and `sls package`.
+  ## This behavior is not ideal for local execution and
+  ## debugging, or linting the generated CloudFormation
+  ## template. A workaround is to indirectly reference
+  ## the stack from an external file.
   config:
     local: ./serverless.config.dev.yml
     dev: ./serverless.config.prd.yml
