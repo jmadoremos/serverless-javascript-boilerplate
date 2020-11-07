@@ -10,4 +10,4 @@ Properties:
           - s3:ListBucket
         Resource: '*'
   Roles:
-    - !Ref LambdaFunctionRole
+    - !Ref SharedLambdaFunctionRoleArn
