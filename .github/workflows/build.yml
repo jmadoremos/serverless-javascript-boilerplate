@@ -48,12 +48,12 @@ jobs:
 
     #########################################
     ## Installation
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js (v${{ matrix.node-version }})
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Use Serverless CLI ${{ matrix.serverless-version }}
+    - name: Use Serverless CLI (v${{ matrix.serverless-version }})
       run: npm install serverless@${{ matrix.serverless-version }} --global
 
     - name: Perform clean install
