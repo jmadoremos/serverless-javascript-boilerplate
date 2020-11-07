@@ -74,8 +74,7 @@ jobs:
       with:
         args: ./res/initialize-serverless/.serverless/cloudformation-template-*.json
 
-    # requires a valid AWS credentials
-    # - name: Execute cfn-lint for deployment
-    #   uses: scottbrenner/cfn-lint-action@master
-    #   with:
-    #     args: ./.serverless/cloudformation-template-*.json
+    - name: Execute cfn-lint for deployment
+      uses: scottbrenner/cfn-lint-action@master
+      with:
+        args: ./.serverless/cloudformation-template-*.json
