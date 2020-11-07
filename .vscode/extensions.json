@@ -8,6 +8,8 @@
         "editorconfig.editorconfig",
         // Supercharge the Git capabilities built into Visual Studio Code
         "eamodio.gitlens",
+        // AWS CloudFormation template Linter
+        "kddejong.vscode-cfn-lint",
         // Icons for Visual Studio Code
         "vscode-icons-team.vscode-icons",
         // AI-assisted development
