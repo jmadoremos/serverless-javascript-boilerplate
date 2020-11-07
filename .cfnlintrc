@@ -1,3 +1,8 @@
+####################################################
+## This file is being consumed by CloudFormation Linter.
+## Source: https://github.com/marketplace/actions/cfn-lint-action
+####################################################
+
 templates:
   - res/initialize-serverless/.serverless/cloudformation-template-*.json
   - .serverless/cloudformation-template-*.json
