@@ -20,4 +20,4 @@ ignore_templates:
   - node_modules
   - res
   - sls
-  - *.yml
+  - "*.yml"
