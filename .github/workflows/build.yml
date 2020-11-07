@@ -62,18 +62,10 @@ jobs:
       run: npm ci
 
     #########################################
-    ## Generate the serverless artifacts
-    - name: Generate initialize-serverless CloudFormation template
-      run: |
-        cd ./res/initialize-serverless
-        sls package --stage dev
+    ## Generate CloudFormation template and
+    ## perform linting
+    - name: Install cfn-python-lint
+      run: ./res/cfn-lint/install.sh
 
-    - name: Generate deployment CloudFormation template
-      run: |
-        npm install webpack
-        sls package --stage local
-
-    #########################################
-    ## Lint generated CloudFormation template
-    - name: Execute cfn-lint using .cfnlintrc
-      uses: scottbrenner/cfn-lint-action@master
+    - name: Execute cfn-lint
+      run: ./res/cfn-lint/execute.sh
