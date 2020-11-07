@@ -75,5 +75,5 @@ jobs:
 
     #########################################
     ## Lint generated CloudFormation template
-    - name: Execute cfn-lint for deployment
+    - name: Execute cfn-lint using .cfnlintrc
       uses: scottbrenner/cfn-lint-action@master
