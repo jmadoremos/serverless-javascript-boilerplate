@@ -66,6 +66,9 @@ jobs:
     #########################################
     ## Generate CloudFormation template and
     ## perform linting
+    - name: Permit cfn-lint/ scripts as executables
+      run: chmod u+x ./res/cfn-lint/*.sh
+
     - name: Install cfn-python-lint
       run: ./res/cfn-lint/install.sh
 
