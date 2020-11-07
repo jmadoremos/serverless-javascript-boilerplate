@@ -56,9 +56,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Use Serverless CLI (v${{ matrix.serverless-version }})
-      run: |
-        npm install serverless@${{ matrix.serverless-version }} --global
-        npm install webpack --global
+      run: npm install serverless@${{ matrix.serverless-version }} --global
 
     - name: Perform clean install
       run: npm ci
@@ -71,7 +69,9 @@ jobs:
         sls package --stage dev
 
     - name: Generate deployment CloudFormation template
-      run: sls package --stage local
+      run: |
+        npm install webpack
+        sls package --stage local
 
     #########################################
     ## Lint generated CloudFormation template
