@@ -13,6 +13,7 @@ on:
       - res/**/serverless.yml
       - sls/**/*.yml
       - src/**/*.js
+      - .cfnlintrc
       - gulpfile.js
       - package-lock.json
       - package.json
@@ -28,6 +29,7 @@ on:
       - res/**/serverless.yml
       - sls/**/*.yml
       - src/**/*.js
+      - .cfnlintrc
       - gulpfile.js
       - package-lock.json
       - package.json
