@@ -57,6 +57,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Use Python (v3.x)
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
     - name: Use Serverless CLI (v${{ matrix.serverless-version }})
       run: npm install serverless@${{ matrix.serverless-version }} --global
 
