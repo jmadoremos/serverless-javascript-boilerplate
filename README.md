@@ -32,6 +32,6 @@ A [Serverless Framework](https://github.com/serverless/serverless) boilerplate f
 
 * [Security Policy](./docs/SECURITY.md)
 
-## Contributions
+* [Contributor Covenant Code of Conduct](./docs/CODE_OF_CONDUCT.md)
 
 * [Contributions](./docs/CONTRIBUTING.md)
