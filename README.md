@@ -31,3 +31,7 @@ A [Serverless Framework](https://github.com/serverless/serverless) boilerplate f
 * [Getting Started](./docs/README.md)
 
 * [Security Policy](./docs/SECURITY.md)
+
+## Contributions
+
+This repository is a work-in-progress and is not yet open for public contributions. Watch this repository to follow its updates.
