@@ -75,7 +75,9 @@ jobs:
       run: chmod u+x ./res/cfn-lint/*.sh
 
     - name: Install cfn-python-lint
-      run: ./res/cfn-lint/install.sh
+      run: |
+        python -m pip install --upgrade pip
+        ./res/cfn-lint/install.sh
 
     - name: Execute cfn-lint
       run: |
