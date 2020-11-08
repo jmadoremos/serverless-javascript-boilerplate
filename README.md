@@ -29,3 +29,5 @@ A [Serverless Framework](https://github.com/serverless/serverless) boilerplate f
 ## Table of Contents
 
 * [Getting Started](./docs/README.md)
+
+* [Security Policy](./docs/SECURITY.md)
