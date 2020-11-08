@@ -34,4 +34,4 @@ A [Serverless Framework](https://github.com/serverless/serverless) boilerplate f
 
 ## Contributions
 
-This repository is a work-in-progress and is not yet open for public contributions. Watch this repository to follow its updates.
+This repository is a work-in-progress and is not yet open for public contributions. Watch this repository to follow its updates. Feel free to raise feature requests.
