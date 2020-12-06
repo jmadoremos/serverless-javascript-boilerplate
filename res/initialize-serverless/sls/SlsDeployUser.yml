@@ -19,6 +19,7 @@ Properties:
               - cloudformation:UpdateStack
               - cloudformation:ValidateTemplate
               - iam:GetRole
+              - iam:PassRole
           - Effect: Allow
             Resource: !Join ['', [!GetAtt ServerlessDeploymentBucket.Arn, '/*']]
             Action:
