@@ -6,7 +6,7 @@
 
 # Create/update CloudFormation template
 cd ./res/initialize-serverless
-serverless package --stage dev
+serverless package --stage local
 cd ../../
 serverless package --stage local
 
