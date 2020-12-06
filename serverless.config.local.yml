@@ -1,3 +1,0 @@
-# Cross-CloudFormation stack references
-CloudFormationStackRoleArn: arn:aws:iam::*:role/dummy-cloudformation-role
-ServerlessDeploymentBucketName: dummy-deployment-bucket

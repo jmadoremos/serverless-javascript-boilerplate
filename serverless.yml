@@ -8,10 +8,10 @@ provider:
   region: ${opt:region, 'us-east-1'}
   stage: ${opt:stage, 'dev'}
   deploymentBucket:
-    name: ${file(serverless.config.${self:provider.stage}.yml):ServerlessDeploymentBucketName}
+    name: !ImportValue initialize-serverless-${self:provider.stage}.ServerlessDeploymentBucketName
     maxPreviousDeploymentArtifacts: 1
   role: !GetAtt SharedLambdaFunctionRole.Arn
-  cfnRole: ${file(serverless.config.${self:provider.stage}.yml):CloudFormationStackRoleArn}
+  cfnRole: !ImportValue initialize-serverless-${self:provider.stage}.CloudFormationStackRoleArn
   versionFunctions: false
   tags:
     Environment: ${self:provider.region}-${self:provider.stage}

@@ -1,14 +1,16 @@
 'use strict';
 
 const archiver = require('archiver');
-const proc = require('child_process');
 const del = require('del');
 const fs = require('fs');
 const gulp = require('gulp');
+const path = require('path');
+const proc = require('child_process');
 
 const getPackageOutput = (region, stage) => `sls-pkg-${region}-${stage}`;
 const getPackageDirectory = (region, stage) => `build/${getPackageOutput(region, stage)}`;
 const getArchiveOutput = (region, stage) => `dist/source-${region}-${stage}.zip`;
+const getNodeBinPath = (cmd) => ['node_modules', '.bin', cmd].join(path.sep);
 
 function cleanServerlessArtifacts() {
     console.log(`> Deleting previous builds`);
@@ -22,7 +24,7 @@ function cleanServerlessArtifacts() {
 
 function packageServerlessArtifact(region, stage) {
     const header = `Pkg (${region}, ${stage})`;
-    const cmd = `node --max-old-space-size=4096 node_modules/.bin/sls package ` +
+    const cmd = `node --max-old-space-size=4096 ${getNodeBinPath('serverless')} package ` +
         `--region ${region} ` +
         `--stage ${stage} ` +
         `--package ${getPackageDirectory(region, stage)}`;
@@ -30,9 +32,9 @@ function packageServerlessArtifact(region, stage) {
     try {
         console.log(`> ${header} | Executing: ${cmd}`);
         proc.execSync(cmd);
-        console.log(`> ${header} | Command exited`);
+        console.log(`> ${header} | Command execution completed`);
     }
-    catch (err) { console.log(`> ${header} | Command exited with error: [${err.name}] ${err.message}`); }
+    catch (err) { console.log(`> ${header} | Command encountered error`); throw err; }
 }
 
 async function archiveServerlessArtifactAsync(region, stage) {
