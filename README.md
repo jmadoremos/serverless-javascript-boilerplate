@@ -1,6 +1,6 @@
 # Serverless for NodeJS (JavaScript)
 
-![Build (Ubuntu)](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Build%20(Ubuntu)/badge.svg?branch=main) ![Build (Windows)](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Build%20(Windows)/badge.svg?branch=main) ![Quality Check](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Quality%20Check/badge.svg?branch=main)
+![Build (Ubuntu)](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Build%20(Ubuntu)/badge.svg?branch=main) ![Build (Windows)](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Build%20(Windows)/badge.svg?branch=main) ![Build (macOS)](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Build%20(macOS)/badge.svg?branch=main) ![Quality Check](https://github.com/jmadoremos/serverless-javascript-boilerplate/workflows/Quality%20Check/badge.svg?branch=main)
 
 A [Serverless Framework](https://github.com/serverless/serverless) boilerplate for NodeJS using JavaScript that includes webpack support, unit testing using mocha, linting using eslint, and task automation using gulp.
 
