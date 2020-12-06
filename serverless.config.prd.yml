@@ -1,3 +1,3 @@
-ServerlessDeploymentBucketName: ${cf:initialize-serverless-${self:provider.stage}.ServerlessDeploymentBucketName}
-
+# Cross-CloudFormation stack references
 CloudFormationStackRoleArn: ${cf:initialize-serverless-${self:provider.stage}.CloudFormationStackRoleArn}
+ServerlessDeploymentBucketName: ${cf:initialize-serverless-${self:provider.stage}.ServerlessDeploymentBucketName}
