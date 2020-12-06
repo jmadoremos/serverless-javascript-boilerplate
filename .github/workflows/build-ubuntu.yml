@@ -1,0 +1,85 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build (Ubuntu)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - .github/workflows/build.yml
+      - res/cfn-lint/*.sh
+      - res/**/sls/*.yml
+      - res/**/serverless.config.*.yml
+      - res/**/serverless.yml
+      - sls/**/*.yml
+      - src/**/*.js
+      - .cfnlintrc
+      - gulpfile.js
+      - package-lock.json
+      - package.json
+      - serverless.config.*.yml
+      - serverless.yml
+      - webpack.config.js
+  pull_request:
+    branches: [ main ]
+    paths:
+      - .github/workflows/build.yml
+      - res/cfn-lint/*.sh
+      - res/**/sls/*.yml
+      - res/**/serverless.config.*.yml
+      - res/**/serverless.yml
+      - sls/**/*.yml
+      - src/**/*.js
+      - .cfnlintrc
+      - gulpfile.js
+      - package-lock.json
+      - package.json
+      - serverless.config.*.yml
+      - serverless.yml
+      - webpack.config.js
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+        serverless-version: [2.x]
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    #########################################
+    ## Installation
+    - name: Use Node.js (v${{ matrix.node-version }})
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Use Python (v3.x)
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Use Serverless CLI (v${{ matrix.serverless-version }})
+      run: npm install serverless@${{ matrix.serverless-version }} --global
+
+    - name: Perform clean install
+      run: npm ci
+
+    #########################################
+    ## Generate CloudFormation template and
+    ## perform linting
+    - name: Permit cfn-lint/ scripts as executables
+      run: chmod u+x ./res/cfn-lint/*.sh
+
+    - name: Install cfn-python-lint
+      run: |
+        python -m pip install --upgrade pip
+        ./res/cfn-lint/install.sh
+
+    - name: Execute cfn-lint
+      run: |
+        npm install webpack
+        ./res/cfn-lint/execute.sh
