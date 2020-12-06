@@ -15,6 +15,14 @@ ignore_checks:
   # ! Lambda function dependency. As of Serverless v2.10.0, we do not
   # ! have control to prevent serverless from adding DependsOn.
   - W3005
+  # Check if the Output value is set using ImportValue, so creating an
+  # Output of an Output.
+  #
+  # ! We skip this check because the boilerplate reuses the same
+  # ! deploymentBucket created by initialize-serverless stack. As of
+  # ! the time of writing, there is no option to prevent Serverless
+  # ! Framework from adding the same bucket name in its output.
+  - W6001
 
 ignore_templates:
   - node_modules
