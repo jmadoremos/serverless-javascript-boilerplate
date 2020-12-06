@@ -1,6 +1,6 @@
 {
   "name": "serverless-javascript-boilerplate",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-beta",
   "description": "A Serverless Framework boilerplate for NodeJS using JavaScript that includes webpack support, unit testing using mocha, linting using eslint, and task automation using gulp.",
   "main": "src/index.js",
   "scripts": {
