@@ -37,7 +37,7 @@
   "author": "James Michael Adoremos <https://github.com/jmadoremos>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.784.0"
+    "aws-sdk": "^2.1363.0"
   },
   "devDependencies": {
     "archiver": "^5.0.2",
